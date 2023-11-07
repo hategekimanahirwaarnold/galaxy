@@ -72,8 +72,8 @@ function init() {
   for (let i = 0; i < particlesCount; i++) {
     let color = randomColor(colors);
     let radius = 2 * random() + 0.08;
-    let x = findBigSize() * random() - center.x;
-    let y = findBigSize() * random() - center.y;
+    let x = findBigSize() * random() - canvas.width / 2;
+    let y = findBigSize() * random() - canvas.height / 2;
     particles.push(new Particle(x, y, radius, color));
   }
 }
