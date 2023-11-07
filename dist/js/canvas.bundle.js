@@ -163,18 +163,21 @@ var Particle = /*#__PURE__*/function () {
     }
   }]);
   return Particle;
-}(); // Implementation
+}();
+function findBigSize() {
+  if (canvas.width > canvas.height) return canvas.width + 300;else return canvas.height + 300;
+}
+
+// Implementation
 var particles;
 function init() {
   particles = [];
   var particlesCount = 800;
   for (var i = 0; i < particlesCount; i++) {
     var color = Object(_utils__WEBPACK_IMPORTED_MODULE_0__["randomColor"])(colors);
-    var canvasWidth = canvas.width + 600;
-    var canvasHeight = canvas.height + 600;
     var radius = 2 * random() + 0.08;
-    var x = canvasWidth * random() - center.x;
-    var y = canvasHeight * random() - center.y;
+    var x = findBigSize() * random() - center.x;
+    var y = findBigSize() * random() - center.y;
     particles.push(new Particle(x, y, radius, color));
   }
 }

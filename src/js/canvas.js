@@ -57,6 +57,12 @@ class Particle {
   }
 
 }
+function findBigSize () {
+  if (canvas.width > canvas.height)
+    return canvas.width + 300;
+  else
+    return canvas.height + 300;
+}
 
 // Implementation
 let particles;
@@ -65,11 +71,9 @@ function init() {
   let particlesCount = 800;
   for (let i = 0; i < particlesCount; i++) {
     let color = randomColor(colors);
-    let canvasWidth = canvas.width + 600;
-    let canvasHeight = canvas.height + 600;
     let radius = 2 * random() + 0.08;
-    let x = canvasWidth * random() - center.x;
-    let y = canvasHeight * random() - center.y;
+    let x = findBigSize() * random() - center.x;
+    let y = findBigSize() * random() - center.y;
     particles.push(new Particle(x, y, radius, color));
   }
 }
