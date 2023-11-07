@@ -1,6 +1,4 @@
 import utils, { randomColor, randomIntFromRange } from './utils'
-import { noise } from '@chriscourses/perlin-noise'
-
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
 
@@ -42,10 +40,6 @@ class Particle {
     this.y = y 
     this.radius = radius
     this.color = color
-    // this.dx = cos(angle);
-    // this.dy = sin(angle);
-    // this.distance = distance;
-    // this.timeToLeave = 1000;
   }
 
   draw() {
@@ -68,13 +62,12 @@ class Particle {
 let particles;
 function init() { 
   particles = [];
-  let particlesCount = 900;
+  let particlesCount = 800;
   for (let i = 0; i < particlesCount; i++) {
-    // let angle = (2 * PI / particlesCount) * i
     let color = randomColor(colors);
     let canvasWidth = canvas.width + 600;
     let canvasHeight = canvas.height + 600;
-    let radius = 2 * random() + 0.1;
+    let radius = 2 * random() + 0.08;
     let x = canvasWidth * random() - center.x;
     let y = canvasHeight * random() - center.y;
     particles.push(new Particle(x, y, radius, color));
